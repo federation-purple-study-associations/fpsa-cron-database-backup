@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Docker login
-      run: cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u bastiaanv --password-stdin
+      run: docker login docker.pkg.github.com -u bastiaanv -p ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build the Docker image
       run: docker build . -f Dockerfile -t docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-database-backup/cronjob:latest
