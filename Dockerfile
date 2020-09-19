@@ -1,6 +1,10 @@
-FROM alpine:latest
+FROM node:lts-alpine3.9
 WORKDIR /mnt
 
-RUN apk add mysql-client
+ADD script.js ./
+ADD package.json ./
 
-CMD mysqldump --verbose --host=${DB_HOST} --user=${DB_USER} -p${DB_PASSWORD} ${DB_NAME} > "Backup/Database/$(date +%F).sql" && ls
+RUN apk add mysql-client
+RUN npm i
+
+CMD mysqldump --verbose --host=${DB_HOST} --user=${DB_USER} -p${DB_PASSWORD} ${DB_NAME} > "$(date +%F).sql" && node script

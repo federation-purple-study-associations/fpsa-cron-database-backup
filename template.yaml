@@ -85,3 +85,28 @@ spec:
                 secretKeyRef:
                   name: db
                   key: DB_NAME
+            - name: USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: mailing
+                  key: SMTP_USERNAME
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mailing
+                  key: SMTP_PASSWORD
+            - name: FOLDERID
+              valueFrom:
+                secretKeyRef:
+                  name: backupcron
+                  key: FOLDERID
+            - name: TENANTID
+              valueFrom:
+                secretKeyRef:
+                  name: backupcron
+                  key: TENANTID
+            - name: CLIENTID
+              valueFrom:
+                secretKeyRef:
+                  name: backupcron
+                  key: CLIENTID
