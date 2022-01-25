@@ -18,6 +18,6 @@
   "homepage": "https://github.com/federation-purple-study-associations/fpsa-cron-database-backup#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
